@@ -1,1 +1,1 @@
-The model for the Franka robot arm and hand is found here: [https://github.com/RobotLocomotion/drake/tree/master/manipulation/models/franka_description](https://github.com/RobotLocomotion/drake/tree/master/manipulation/models/franka_description)
+The model for the Franka robot arm and hand is found [here.](https://github.com/RobotLocomotion/drake/tree/master/manipulation/models/franka_description)
