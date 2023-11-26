@@ -92,5 +92,7 @@ Note that the algorithm above returns the set of feasbile blocks for **one** tur
 Let us define the tower state as the set of blocks in the tower, and their positions. The tower state is a function of time, because the blocks are removed from the tower. The tower state is also a function of the position of each block, which is a function of time. The tower state $X$ an array, where 
 
 $$
-\mathrm{dim}(X) = \mathrm{dim}(\mathcal{N}) \times 3
+\mathrm{dim}(X) = (\max{\mathcal{K}}) \times \max{\mathcal{J}} \times  2
 $$
+
+where the first dimension is the height of the tower, the second dimension is the width of the tower, and the third dimension contains (1) the unique block identifier $d \in \mathcal{N}$ and (2) the center of mass $p_d$ for each block $d$.
