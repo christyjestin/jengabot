@@ -66,7 +66,7 @@ In order for the tower to not topple, its resultant center of mass above every l
 
 Below is some pseudocode for the algorithm that determines whether the tower will topple.
 
-## Algorithm to Determine Feasible Blocks to Remove on a Given Turn
+## *Algorithm 1*: Determine Feasible Blocks to Remove on a Given Turn
 1. **Input**: Block mass $m$, width $w$, length $l$, height $h$, and number of blocks $n$.
 2. **Output** Array of booleans $\mathcal{B}$, where $\mathcal{B}[i]$ is $\texttt{True}$ if the tower will topple if block $i$ is removed, and $\texttt{False}$ otherwise.
 3. **for** each block $d\in \mathcal{N}$
@@ -96,3 +96,13 @@ $$
 $$
 
 where the first dimension is the height of the tower, the second dimension is the width of the tower, and the third dimension contains (1) the unique block identifier $d \in \mathcal{N}$ and (2) the center of mass $p_d$ for each block $d$.
+
+The key to updating the tower state is to keep track of the block identifiers. We can do this by using a dictionary, where the keys are the block identifiers, and the values are the positions of the blocks. The algorithm to update the tower state is as follows:
+
+## *Algorithm 2*: Update the Tower State
+1. **Input**: Tower state $X$, block mass $m$, width $w$, length $l$, height $h$, and number of blocks $n$.
+2. **Output**: Updated tower state $X$.
+3. **for** $t = 0$, $t < T$
+   1. Move a feasible block according to *Algorithm 1*. Let $d$ be the block identifier.
+   2. $\mathcal{K}_t \leftarrow \{1,\dotsc,18 + \mathrm{ceil}(t/3)\}$
+4. **end for**
