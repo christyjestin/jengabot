@@ -92,22 +92,3 @@ Below is some pseudocode for the algorithm that determines whether the tower wil
 5. **return** $\mathcal{B}$
 
 Note that the algorithm above returns the set of feasbile blocks for **one** turn. The algorithm must be run for each turn, but the tower state must be updated after each turn.
-
-## Algorithm to Update the Tower State
-Let us define the tower state as the set of blocks in the tower, and their positions. The tower state is a function of time, because the blocks are removed from the tower. The tower state is also a function of the position of each block, which is a function of time. The tower state $X$ an array, where 
-
-$$
-\mathrm{dim}(X) = (\max{\mathcal{K}}) \times \max{\mathcal{J}} \times  2
-$$
-
-where the first dimension is the height of the tower, the second dimension is the width of the tower, and the third dimension contains (1) the unique block identifier $d \in \mathcal{N}$ and (2) the center of mass $p_d$ for each block $d$.
-
-The key to updating the tower state is to keep track of the block identifiers. We can do this by using a dictionary, where the keys are the block identifiers, and the values are the positions of the blocks. The algorithm to update the tower state is as follows:
-
-## *Algorithm 2*: Update the Tower State
-1. **Input**: Tower state $X$, block mass $m$, width $w$, length $l$, height $h$, and number of blocks $n$.
-2. **Output**: Updated tower state $X$.
-3. **for** $t = 0$, $t < T$
-   1. Move a feasible block according to *Algorithm 1*. Let $d$ be the block identifier.
-   2. $\mathcal{K}_t \leftarrow \{1,\dotsc,18 + \mathrm{ceil}(t/3)\}$
-4. **end for**
