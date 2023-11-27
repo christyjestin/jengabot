@@ -1,9 +1,4 @@
 <?xml version="1.0"?>
-<package format="2">
-  <name>jengabot</name>
-  <version>0.0.0</version>
-  <description>Table top model</description>
-</package>
 <sdf version="1.7">
   <model name="table_top">
     <link name="table_top_link">
