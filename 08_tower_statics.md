@@ -1,6 +1,11 @@
 # 08 - Tower Statics
 
-We index each block using three numbers, $i$, $j$, and $k$, which index the $x$, $y$, and $z$ coordinates of the block.  The mass of each block is $m_{ijk}$, and the total mass of the tower is $M$. We assume that the tower is in static equilibrium, so the net force on the tower is zero. We also assume that each block has the same mass, i.e. $m_{ijk} = m$ $\forall$ $i$, $j$, and $k$. 
+## Rigid-body *statics without* block friction
+
+Static equilibrium (absence external disturbances) is the most fundamental property that the tower must have in order for it to not topple. To start, masses and inertias of the blocks will be used to compute the net wrench
+(force and moment) due to gravity, without considering frictional effects or minor deviations in the blocks’ nominal dimensions.
+
+We index each block using three numbers, $i$, $j$, and $k$, which index the $x$, $y$, and $z$ coordinates of the block.  The mass of each block is $m_{ijk}$, and the total mass of the tower is $M$. We assume that the tower is in static equilibrium, so the net force on the tower is zero. We also assume that each block has the same mass, i.e. $m_{ijk} = m$ $\forall$ $i$, $j$, and $k$.
 
 Because the Jenga tower begins as 18 blocks high, and three wide, we can define the following sets to help us identify the blocks in e. Let $\mathcal{N}$ be the set that uniquely indexes each block, and $\max {\mathcal{N}}=n=18 \times 3$  be the total number of blocks. Let $\mathcal{K}_t$ be the set of admissiable $k$ values at time $t$. Similarly, let $\mathcal{I}$ and $\mathcal{J}$ be the set of admissiable $i$ and $j$ values. Then, we have the following initial conditions:
 
