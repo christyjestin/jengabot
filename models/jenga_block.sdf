@@ -3,7 +3,6 @@
   <model name="jenga_block">
     <link name="jenga_block_link">
       <inertial>
-      <!-- TODO: fix inertias -->
         <mass>18.70</mass>
         <inertia>
           <ixx>0.79</ixx>
@@ -31,10 +30,149 @@
           </box>
         </geometry>
         <drake:proximity_properties>
-          <drake:compliant_hydroelastic/>
+          <drake:compliant_hydroelastic/>f
           <drake:hydroelastic_modulus>1.0e6</drake:hydroelastic_modulus>
         </drake:proximity_properties>
       </collision>
+
+      <!-- Adding thin black lines as boxes around each edge -->
+      <!-- Top edges -->
+      <visual name="top_front_edge">
+        <geometry>
+          <box>
+            <size>0.025 0.001 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0 0.037 0.007 0 0 0</pose>
+      </visual>
+      <visual name="top_back_edge">
+        <geometry>
+          <box>
+            <size>0.025 0.001 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0 -0.037 0.007 0 0 0</pose>
+      </visual>
+      <visual name="top_left_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.075 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>-0.012 0 0.007 0 0 0</pose>
+      </visual>
+      <visual name="top_right_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.075 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0.012 0 0.007 0 0 0</pose>
+      </visual>
+
+      <!-- Bottom edges -->
+      <visual name="bottom_front_edge">
+        <geometry>
+          <box>
+            <size>0.025 0.001 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0 0.037 -0.007 0 0 0</pose>
+      </visual>
+      <visual name="bottom_back_edge">
+        <geometry>
+          <box>
+            <size>0.025 0.001 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0 -0.037 -0.007 0 0 0</pose>
+      </visual>
+      <visual name="bottom_left_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.075 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>-0.012 0 -0.007 0 0 0</pose>
+      </visual>
+      <visual name="bottom_right_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.075 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0.012 0 -0.007 0 0 0</pose>
+      </visual>
+
+      <!-- Side edges -->
+      <visual name="front_left_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.015</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>-0.012 0.037 0 0 0 0</pose>
+      </visual>
+      <visual name="front_right_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.015</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0.012 0.037 0 0 0 0</pose>
+      </visual>
+      <visual name="back_left_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.015</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>-0.012 -0.037 0 0 0 0</pose>
+      </visual>
+      <visual name="back_right_edge">
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.015</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0 0 0 1</diffuse>
+        </material>
+        <pose>0.012 -0.037 0 0 0 0</pose>
+      </visual>
     </link>
     <frame name="jenga_block_center">
       <pose relative_to="jenga_block_link">0 0 -0.0075 0 0 0</pose>
