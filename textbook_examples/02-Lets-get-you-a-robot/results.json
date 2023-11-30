@@ -1,0 +1,14 @@
+{
+    "tests": [
+        {
+            "name": "Test get_velocity implementation",
+            "score": 0.0,
+            "max_score": 5,
+            "status": "failed",
+            "output": "Test Failed: unsupported operand type(s) for -: 'float' and 'NoneType'\n"
+        }
+    ],
+    "leaderboard": [],
+    "execution_time": "0.00",
+    "score": 0.0
+}
