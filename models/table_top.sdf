@@ -21,7 +21,7 @@
           </box>
         </geometry>
         <material>
-          <diffuse>0.9 0.9 0.9 1.0</diffuse>
+          <diffuse>0.6 0.2 0.2 1.0</diffuse>
         </material>
       </visual>
       <collision name="bottom">
@@ -33,7 +33,7 @@
         </geometry>
         <drake:proximity_properties>
           <drake:compliant_hydroelastic/>
-          <drake:hydroelastic_modulus>1.0e6</drake:hydroelastic_modulus>
+          <drake:hydroelastic_modulus>1.0e16</drake:hydroelastic_modulus>
         </drake:proximity_properties>
       </collision>
     </link>
