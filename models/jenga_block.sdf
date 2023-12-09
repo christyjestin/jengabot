@@ -3,20 +3,20 @@
   <model name="jenga_block">
     <link name="jenga_block_link">
       <inertial>
-        <mass>18.70</mass>
+        <mass>0.160</mass>
         <inertia>
-          <ixx>0.79</ixx>
+          <ixx>0.000312</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.53</iyy>
+          <iyy>0.0000453</iyy>
           <iyz>0</iyz>
-          <izz>1.2</izz>
+          <izz>0.000333</izz>
         </inertia>
       </inertial>
       <visual name="block">
         <geometry>
           <box>
-            <size>0.025 0.075 0.015</size>
+            <size>0.05 0.15 0.03</size>
           </box>
         </geometry>
         <material>
@@ -26,7 +26,7 @@
       <collision name="block">
         <geometry>
           <box>
-            <size>0.025 0.075 0.015</size>
+            <size>0.05 0.15 0.03</size>
           </box>
         </geometry>
         <drake:proximity_properties>
@@ -40,142 +40,142 @@
       <visual name="top_front_edge">
         <geometry>
           <box>
-            <size>0.025 0.001 0.001</size>
+            <size>0.05 0.001 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0 0.037 0.007 0 0 0</pose>
+        <pose>0 0.075 0.015 0 0 0</pose>
       </visual>
       <visual name="top_back_edge">
         <geometry>
           <box>
-            <size>0.025 0.001 0.001</size>
+            <size>0.05 0.001 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0 -0.037 0.007 0 0 0</pose>
+        <pose>0 -0.075 0.015 0 0 0</pose>
       </visual>
       <visual name="top_left_edge">
         <geometry>
           <box>
-            <size>0.001 0.075 0.001</size>
+            <size>0.001 0.15 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>-0.012 0 0.007 0 0 0</pose>
+        <pose>-0.025 0 0.015 0 0 0</pose>
       </visual>
       <visual name="top_right_edge">
         <geometry>
           <box>
-            <size>0.001 0.075 0.001</size>
+            <size>0.001 0.15 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0.012 0 0.007 0 0 0</pose>
+        <pose>0.025 0 0.015 0 0 0</pose>
       </visual>
 
       <!-- Bottom edges -->
       <visual name="bottom_front_edge">
         <geometry>
           <box>
-            <size>0.025 0.001 0.001</size>
+            <size>0.05 0.001 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0 0.037 -0.007 0 0 0</pose>
+        <pose>0 0.075 -0.015 0 0 0</pose>
       </visual>
       <visual name="bottom_back_edge">
         <geometry>
           <box>
-            <size>0.025 0.001 0.001</size>
+            <size>0.05 0.001 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0 -0.037 -0.007 0 0 0</pose>
+        <pose>0 -0.075 -0.015 0 0 0</pose>
       </visual>
       <visual name="bottom_left_edge">
         <geometry>
           <box>
-            <size>0.001 0.075 0.001</size>
+            <size>0.001 0.15 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>-0.012 0 -0.007 0 0 0</pose>
+        <pose>-0.025 0 -0.015 0 0 0</pose>
       </visual>
       <visual name="bottom_right_edge">
         <geometry>
           <box>
-            <size>0.001 0.075 0.001</size>
+            <size>0.001 0.15 0.001</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0.012 0 -0.007 0 0 0</pose>
+        <pose>0.025 0 -0.015 0 0 0</pose>
       </visual>
 
       <!-- Side edges -->
       <visual name="front_left_edge">
         <geometry>
           <box>
-            <size>0.001 0.001 0.015</size>
+            <size>0.001 0.001 0.03</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>-0.012 0.037 0 0 0 0</pose>
+        <pose>-0.025 0.075 0 0 0 0</pose>
       </visual>
       <visual name="front_right_edge">
         <geometry>
           <box>
-            <size>0.001 0.001 0.015</size>
+            <size>0.001 0.001 0.03</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0.012 0.037 0 0 0 0</pose>
+        <pose>0.025 0.075 0 0 0 0</pose>
       </visual>
       <visual name="back_left_edge">
         <geometry>
           <box>
-            <size>0.001 0.001 0.015</size>
+            <size>0.001 0.001 0.03</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>-0.012 -0.037 0 0 0 0</pose>
+        <pose>-0.025 -0.075 0 0 0 0</pose>
       </visual>
       <visual name="back_right_edge">
         <geometry>
           <box>
-            <size>0.001 0.001 0.015</size>
+            <size>0.001 0.001 0.03</size>
           </box>
         </geometry>
         <material>
           <diffuse>0 0 0 1</diffuse>
         </material>
-        <pose>0.012 -0.037 0 0 0 0</pose>
+        <pose>0.025 -0.075 0 0 0 0</pose>
       </visual>
     </link>
     <frame name="jenga_block_center">
-      <pose relative_to="jenga_block_link">0 0 -0.0075 0 0 0</pose>
+      <pose relative_to="jenga_block_link">0 0 -0.015 0 0 0</pose>
     </frame>
   </model>
 </sdf>
