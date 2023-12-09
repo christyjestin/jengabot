@@ -22,3 +22,5 @@ FRICTION_THRESHOLD = 0.5
 
 # motion parameters
 PUSH_FRACTION = 0.2
+
+IIWA_NUM_POSITIONS = 7
