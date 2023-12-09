@@ -1,13 +1,5 @@
 from constants import *
-from manipulation.station import load_scenario, MakeHardwareStation
-from pydrake.all import (
-    DiagramBuilder,
-    PortSwitch,
-    Simulator,
-    MeshcatVisualizer,
-
-)
-from manipulation.scenarios import AddIiwaDifferentialIK
+from manipulation.station import load_scenario
 
 def make_stack():
     output = ''
@@ -76,84 +68,3 @@ model_drivers:
     scenario_data += driver_data
     scenario = load_scenario(data = scenario_data)
     return scenario
-
-def make_station(meshcat):
-    meshcat.Delete()
-    scenario = construct_scenario()
-    builder = DiagramBuilder()
-    station = builder.AddSystem(MakeHardwareStation(scenario, meshcat))
-    plant = station.GetSubsystemByName("plant")
-    return station, plant, builder
-
-def setup_planner(builder, station, plant):
-    planner = builder.AddSystem(Planner(plant))
-    builder.Connect(
-        station.GetOutputPort("body_poses"), planner.GetInputPort("body_poses")
-    )
-    builder.Connect(
-        station.GetOutputPort("wsg.state_measured"),
-        planner.GetInputPort("wsg_state"),
-    )
-    builder.Connect(
-        station.GetOutputPort("iiwa.position_measured"),
-        planner.GetInputPort("iiwa_position"),
-    )
-    robot = station.GetSubsystemByName(
-        "iiwa.controller"
-    ).get_multibody_plant_for_control()
-    return planner, robot
-
-
-def setup_controller(builder, robot, planner, station):
-    diff_ik = AddIiwaDifferentialIK(builder, robot)
-    builder.Connect(planner.GetOutputPort("X_WG"), diff_ik.get_input_port(0))
-    builder.Connect(
-        station.GetOutputPort("iiwa.state_estimated"),
-        diff_ik.GetInputPort("robot_state"),
-    )
-    builder.Connect(
-        planner.GetOutputPort("reset_diff_ik"),
-        diff_ik.GetInputPort("use_robot_state"),
-    )
-    builder.Connect(
-        planner.GetOutputPort("wsg_position"),
-        station.GetInputPort("wsg.position"),
-    )
-
-    # The DiffIK and the direct position-control modes go through a PortSwitch
-    switch = builder.AddSystem(PortSwitch(7))
-
-    builder.Connect(
-        diff_ik.get_output_port(), switch.DeclareInputPort("diff_ik")
-    )
-    builder.Connect(
-        planner.GetOutputPort("iiwa_position_command"),
-        switch.DeclareInputPort("position"),
-    )
-    builder.Connect(
-        switch.get_output_port(), station.GetInputPort("iiwa.position")
-    )
-    builder.Connect(
-        planner.GetOutputPort("control_mode"),
-        switch.get_port_selector_input_port(),
-    )
-    return builder
-
-def setup_simulation(meshcat, builder, station):
-    visualizer = MeshcatVisualizer.AddToBuilder(
-        builder, station.GetOutputPort("query_object"), meshcat
-    )
-    diagram = builder.Build()
-
-    simulator = Simulator(diagram)
-
-    simulator.AdvanceTo(0.1)
-    meshcat.Flush()  # Wait for the large object meshes to get to meshcat.
-
-    simulator.set_target_realtime_rate(1.0)
-    meshcat.AddButton("Stop Simulation", "Escape")
-    print("Press Escape to stop the simulation")
-    while meshcat.GetButtonClicks("Stop Simulation") < 1:
-        simulator.AdvanceTo(simulator.get_context().get_time() + 2.0)
-    meshcat.DeleteButton("Stop Simulation")
-    return visualizer, diagram, simulator
