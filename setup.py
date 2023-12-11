@@ -103,7 +103,6 @@ def setup_planner(builder, station, plant):
     ).get_multibody_plant_for_control()
     return planner, robot
 
-
 def setup_controller(builder, robot, planner, station):
     diff_ik = AddIiwaDifferentialIK(builder, robot)
     builder.Connect(planner.GetOutputPort("X_WG"), diff_ik.get_input_port(0))
