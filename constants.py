@@ -1,6 +1,6 @@
 import numpy as np
 
-NUM_LAYERS = 4 # actual number is 18, but can use a smaller number to speed up sim setup
+NUM_LAYERS = 18 # actual number is 18, but can use a smaller number to speed up sim setup
 NUM_BLOCKS_PER_LAYER = 3
 
 # block dimensions
@@ -19,8 +19,5 @@ assert BLOCK_POSITIONS.shape == (NUM_BLOCKS_PER_LAYER,)
 
 # tunable parameters
 FRICTION_THRESHOLD = 0.5
-
-# motion parameters
-PUSH_FRACTION = 0.2
 
 IIWA_NUM_POSITIONS = 7

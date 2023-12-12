@@ -81,7 +81,7 @@ class Planner(LeafSystem):
     def Plan(self, context, state):
         current_time = context.get_time()
 
-        block = (4, 0)
+        block = (14, 0)
         times, poses, wsg_positions = construct_trajectory(current_time, block)
         set_state(state, self.X_G_trajectory_index, PiecewisePose.MakeLinear(times, poses))
         set_state(state, self.wsg_trajectory_index, PiecewisePolynomial.FirstOrderHold(times, wsg_positions))
